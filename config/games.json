@@ -1,0 +1,34 @@
+{
+  "games": [
+    {
+      "appid": 4115450,
+      "name": "影之刃零",
+      "name_en": "Phantom Blade Zero",
+      "store_url": "https://store.steampowered.com/app/4115450/"
+    },
+    {
+      "appid": 1086940,
+      "name": "博德之门3",
+      "name_en": "Baldur's Gate 3",
+      "store_url": "https://store.steampowered.com/app/1086940/"
+    },
+    {
+      "appid": 1771300,
+      "name": "天国：拯救2",
+      "name_en": "Kingdom Come: Deliverance II",
+      "store_url": "https://store.steampowered.com/app/1771300/"
+    },
+    {
+      "appid": 1245620,
+      "name": "艾尔登法环",
+      "name_en": "ELDEN RING",
+      "store_url": "https://store.steampowered.com/app/1245620/"
+    },
+    {
+      "appid": 3280350,
+      "name": "死亡搁浅2",
+      "name_en": "DEATH STRANDING 2: ON THE BEACH",
+      "store_url": "https://store.steampowered.com/app/3280350/"
+    }
+  ]
+}

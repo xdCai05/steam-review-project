@@ -1,0 +1,63 @@
+{
+  "window": {
+    "timezone": "Asia/Shanghai",
+    "days": 90,
+    "split": "month",
+    "segment_order": "desc"
+  },
+  "request": {
+    "languages": [
+      "schinese"
+    ],
+    "filter": 1,
+    "review_type": 0,
+    "purchase_type": 1,
+    "filter_offtopic_activity": false,
+    "num_per_page": 100,
+    "verify_num_per_page": 20,
+    "param_style": "input_json"
+  },
+  "store": {
+    "region": "cn",
+    "language": "schinese",
+    "currency": "CNY",
+    "api_language": "schinese",
+    "mature_cookies": true
+  },
+  "rate_limit": {
+    "min_interval_seconds": 2.0,
+    "connect_timeout": 10,
+    "read_timeout": 30,
+    "retry_max": 5,
+    "backoff_seconds": [
+      4,
+      8,
+      16,
+      32,
+      64
+    ],
+    "backoff_jitter": 1.0,
+    "respect_retry_after": true
+  },
+  "http": {
+    "user_agent": "steam-review-coursework/1.0 (+local research; contact: student@example.edu)"
+  },
+  "paths": {
+    "data_dir": "data",
+    "tasks_dir": "data/tasks",
+    "games_dir": "data/games",
+    "database": "data/database/steam_reviews.db",
+    "exports_dir": "data/exports",
+    "logs_dir": "logs",
+    "samples_dir": "data/samples"
+  },
+  "policy": {
+    "max_review_bytes_per_game": 100000000,
+    "min_free_disk_bytes": 5000000000,
+    "max_runtime_seconds": null,
+    "per_game_overrides": "{}"
+  },
+  "limits": {
+    "max_pages_per_segment": 0
+  }
+}

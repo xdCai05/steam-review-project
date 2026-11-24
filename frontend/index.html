@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#e8eff9">
+  <title>Steam 评测库</title>
+  <script src="/theme.js"></script>
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/game-comparison.css">
+  <link rel="stylesheet" href="/review-worker-control.css">
+  <script src="/vendor/echarts/echarts.min.js" defer></script>
+  <script src="/review-wordcloud.js" defer></script>
+  <script src="/app.js" defer></script>
+  <script src="/review-worker-control.js" defer></script>
+  <script src="/review-tasks.js" defer></script>
+</head>
+<body>
+  <header class="sidebar glass">
+    <div class="side-inner">
+      <a class="brand" href="#/" aria-label="Steam 评测库首页"><span class="mark" aria-hidden="true">▥</span>Steam 评测库</a>
+      <nav id="side-nav" aria-label="主导航"></nav>
+      <div class="theme-control">
+        <span id="theme-label">夜间模式</span>
+        <button id="theme-switch" class="glass-switch" type="button" role="switch" aria-labelledby="theme-label" aria-checked="false">
+          <span class="glass-switch-track" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+  <main id="app" class="shell" tabindex="-1" aria-live="polite"></main>
+  <nav id="dock" class="dock glass" aria-label="快捷导航"></nav>
+  <button id="task-orb" class="task-orb glass" type="button" aria-label="打开评测采集" title="评测采集" hidden>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <rect x="3" y="4" width="18" height="16" rx="4"/><path d="m7 9 3 3-3 3m6 0h4"/>
+    </svg>
+    <span class="task-orb-dot" aria-hidden="true"></span><span class="task-orb-count" aria-hidden="true" hidden></span>
+  </button>
+  <dialog id="review-task-dialog" class="task-dialog" aria-labelledby="task-dialog-title">
+    <header class="task-dialog-head">
+      <h2 id="task-dialog-title">评测采集</h2>
+      <div class="task-window-actions">
+        <div class="review-worker-control" id="task-worker-control" data-state="checking">
+          <span class="review-worker-status" role="status">正在连接采集后端</span>
+          <button class="glass-switch review-worker-switch" type="button" role="switch" aria-label="采集后端" aria-checked="false" aria-disabled="true">
+            <span class="glass-switch-track" aria-hidden="true"></span>
+          </button>
+        </div>
+        <button type="button" class="button button--quiet" data-task-window="minimize" aria-label="最小化到右下角" title="最小化到右下角">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 16h12"/></svg>
+        </button>
+        <button type="button" class="button button--quiet" data-task-window="close" aria-label="关闭弹窗" title="关闭弹窗">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg>
+        </button>
+      </div>
+    </header>
+    <div id="task-worker-feedback" class="review-worker-feedback" role="status" hidden></div>
+    <div class="task-layout">
+      <div class="task-sidebar">
+        <nav class="task-tabbar" aria-label="评测采集面板">
+          <button type="button" data-task-mode="candidates" aria-pressed="true">候选游戏</button>
+          <button type="button" data-task-mode="jobs" aria-pressed="false">任务与历史</button>
+        </nav>
+        <div id="task-candidates" class="task-list-panel">
+          <div class="task-search">
+            <label><span>搜索游戏</span><input type="search" id="candidate-query" placeholder="名称或 AppID" maxlength="100" autofocus></label>
+            <div class="field"><label for="candidate-genre">分类</label><select id="candidate-genre"><option value="">全部分类</option></select></div>
+          </div>
+          <div id="candidate-results" class="task-results" aria-label="Steam 候选游戏"></div>
+          <nav class="task-list-pagination" aria-label="候选游戏分页">
+            <button type="button" class="button" id="candidate-prev" disabled>上一页</button>
+            <span id="candidate-page" role="status"></span>
+            <button type="button" class="button" id="candidate-next" disabled>下一页</button>
+          </nav>
+        </div>
+        <div id="task-jobs" class="task-list-panel" hidden>
+          <div id="job-results" class="task-results" aria-label="队列和历史"></div>
+        </div>
+      </div>
+      <div class="task-main">
+        <p id="task-message" role="status" hidden></p>
+        <div id="task-game"></div>
+        <div id="task-execution"></div>
+      </div>
+    </div>
+  </dialog>
+</body>
+</html>

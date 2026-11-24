@@ -1,0 +1,32 @@
+{
+  "recommendationid": "1790000001",
+  "author": {
+    "steamid": "76561198000000001",
+    "num_reviews": 12,
+    "playtime_forever": 360,
+    "playtime_last_two_weeks": 180,
+    "playtime_at_review": 120,
+    "last_played": 1795100000
+  },
+  "language": "schinese",
+  "review": "示例评测正文，含换行\n与表情🙂",
+  "timestamp_created": 1794000000,
+  "timestamp_updated": 1794000100,
+  "voted_up": true,
+  "votes_up": 5,
+  "votes_funny": 1,
+  "weighted_vote_score": 0.75,
+  "comment_count": 2,
+  "steam_purchase": true,
+  "received_for_free": false,
+  "written_during_early_access": false,
+  "primarily_steam_deck": false,
+  "refunded": false,
+  "hardware": {
+    "cpu_name": "Example CPU",
+    "adapter_description": "Example GPU",
+    "system_ram": 16384,
+    "vram_size": 8192,
+    "os": "windows"
+  }
+}

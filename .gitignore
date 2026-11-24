@@ -1,0 +1,33 @@
+# 运行产物：数据库、原始落盘、图片、导出、日志
+data/games/
+data/tasks/
+data/samples/
+data/database/
+data/exports/
+logs/
+*.log
+config/.appids.lock
+config/appids.json.tmp
+
+# 密钥与本地环境
+.env
+.env.local
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.venv/
+venv/
+
+# 编辑器 / 系统
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# 保留目录结构
+!data/exports/.gitkeep
+!logs/.gitkeep
